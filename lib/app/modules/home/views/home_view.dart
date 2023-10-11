@@ -1,4 +1,5 @@
 import 'package:code_symmetry/app/modules/home/controllers/home_controller.dart';
+import 'package:code_symmetry/app/modules/home/src/Footer.dart';
 import 'package:code_symmetry/app/modules/home/src/responsive_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -114,23 +115,19 @@ class _MyAppState extends State<HomeView> with SingleTickerProviderStateMixin {
                                 //   ),
                                 // ),
 
-                                Text("MITSET",style: context
-                                      .textTheme
-                                      .displayMedium
+                                Text(
+                                  "MITSET",
+                                  style: context.textTheme.displayMedium
                                       ?.copyWith(
-                                        fontWeight: FontWeight.bold,
-
-                                        color:context.theme.colorScheme.onSecondaryContainer
-                                      ),),
+                                          fontWeight: FontWeight.bold,
+                                          color: context.theme.colorScheme
+                                              .onSecondaryContainer),
+                                ),
                                 Text(
                                   "Elevate Your Digital Vision \nwith MITSET"
                                       .toUpperCase(),
-                                  style: context
-                                      .textTheme
-                                      .titleLarge
-                                      ?.copyWith(
-
-                                      ),
+                                  style:
+                                      context.textTheme.titleLarge?.copyWith(),
                                   textAlign:
                                       ResponsiveWidget.isLargeScreen(context)
                                           ? TextAlign.start
@@ -152,12 +149,17 @@ class _MyAppState extends State<HomeView> with SingleTickerProviderStateMixin {
                                         borderRadius: BorderRadius.circular(50),
                                         side: const BorderSide(width: 0.5)),
                                     onPressed: () {},
-                                    child:  Padding(
-                                      padding: EdgeInsets.symmetric(
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
                                           horizontal: 32, vertical: 12),
-                                      child: Text("Get Started",style: GoogleFonts.lato(
-    textStyle: TextStyle(color: Colors.blue, letterSpacing: .5),
-  ),),
+                                      child: Text(
+                                        "Get Started",
+                                        style: GoogleFonts.lato(
+                                          textStyle: const TextStyle(
+                                              color: Colors.blue,
+                                              letterSpacing: .5),
+                                        ),
+                                      ),
                                     ))
                               ],
                             ),
@@ -179,6 +181,7 @@ class _MyAppState extends State<HomeView> with SingleTickerProviderStateMixin {
                     ),
                   ),
                   const Ourservices(),
+                  const Footer()
                 ],
               ),
             )

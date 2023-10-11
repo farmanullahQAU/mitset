@@ -32,18 +32,18 @@ class Ourservices extends GetView<HomeController> {
                 : ResponsiveRowColumnType.ROW,
             rowMainAxisAlignment: MainAxisAlignment.center,
             rowCrossAxisAlignment: CrossAxisAlignment.start,
-            rowSpacing: 30,
+            rowSpacing: 0,
             children: [
               ResponsiveRowColumnItem(
                   rowFlex: 1,
                   child: Container(
                     padding: EdgeInsets.symmetric(
-                        horizontal: context.width * 0.1, vertical: 50),
+                        horizontal: (context.width * 0.1) + 50, vertical: 0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         ListView.builder(
-                          padding: const EdgeInsets.symmetric(vertical: 1),
+                          padding: const EdgeInsets.symmetric(vertical: 0),
                           shrinkWrap: true,
                           itemCount: rowCount,
                           itemBuilder: (context, rowIndex) {
@@ -56,23 +56,22 @@ class Ourservices extends GetView<HomeController> {
                             final rowItems =
                                 items.sublist(startIndex, endIndex);
 
-                            return Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 16),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: rowItems
-                                    .map((model) =>
-                                        _ServicesCard(model: model))
-                                    .toList(),
-                              ),
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: rowItems
+                                  .map((model) => _ServicesCard(model: model))
+                                  .toList(),
                             );
                           },
                         ),
+                        const SizedBox(
+                          height: 100,
+                        ),
                         Text(
-                          "Unlock the full potential of Flutter with MITSET.",
-                          style: context.textTheme.displaySmall?.copyWith(color: context.theme.colorScheme.onSecondaryContainer)),
-                        
+                            "Unlock the full potential of Flutter with MITSET.",
+                            style: context.textTheme.displaySmall?.copyWith(
+                                color: context
+                                    .theme.colorScheme.onSecondaryContainer)),
                         const SizedBox(
                           height: 16,
                         ),
@@ -132,11 +131,10 @@ class __ServicesCardState extends State<_ServicesCard> {
           });
         },
         child: AnimatedContainer(
-          
           duration: const Duration(milliseconds: 400),
           transform: Matrix4.identity()
             ..scale(controller.isHovered ? 1.1 : 1.0),
-          margin: const EdgeInsets.symmetric(horizontal: 16),
+          margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
           decoration: BoxDecoration(
             boxShadow: isHovered
                 ? [
@@ -150,7 +148,8 @@ class __ServicesCardState extends State<_ServicesCard> {
                 : [],
           ),
           child: Card(
-          color: context.theme.colorScheme.secondaryContainer,
+            color: context.theme.colorScheme.secondaryContainer,
+            margin: EdgeInsets.zero,
             elevation: isHovered ? 1 : 0,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
@@ -164,14 +163,16 @@ class __ServicesCardState extends State<_ServicesCard> {
                   ),
                   Text(
                     widget.model.title,
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(color: context.theme.colorScheme.onSecondaryContainer),
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: context.theme.colorScheme.onSecondaryContainer),
                   ),
                   const SizedBox(
                     height: 16,
                   ),
                   Text(
                     widget.model.subtitle!,
-                    style: context.textTheme.titleMedium?.copyWith(color: context.theme.colorScheme.onSecondaryContainer),
+                    style: context.textTheme.titleMedium?.copyWith(
+                        color: context.theme.colorScheme.onSecondaryContainer),
                     textAlign: TextAlign.center,
                   ),
                 ],
