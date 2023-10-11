@@ -131,7 +131,7 @@ class _NavBarItemState extends State<NavBarItem> {
                             Theme.of(context).textTheme.titleMedium?.copyWith(
                                   fontWeight: FontWeight.normal,
                                   color: isHovered || widget.isSelected
-                                      ? Colors.red
+                                      ? context.theme.colorScheme.primary
                                       : null,
                                 )),
                   ),
@@ -146,7 +146,7 @@ class _NavBarItemState extends State<NavBarItem> {
                           bottom: BorderSide(
                             width: isHovered || widget.isSelected ? 2.0 : 0.0,
                             color: isHovered || widget.isSelected
-                                ? Colors.red
+                                ? context.theme.colorScheme.primary
                                 : Colors.black,
                           ),
                         ),

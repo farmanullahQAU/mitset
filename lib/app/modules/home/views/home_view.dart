@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_framework/responsive_value.dart' as responsive;
 
+import '../sections/contact_section.dart';
 import '../sections/service_section.dart';
 import '../src/Header.dart';
 
@@ -115,19 +116,12 @@ class _MyAppState extends State<HomeView> with SingleTickerProviderStateMixin {
                                 //   ),
                                 // ),
 
+                             
                                 Text(
-                                  "MITSET",
-                                  style: context.textTheme.displayMedium
-                                      ?.copyWith(
-                                          fontWeight: FontWeight.bold,
-                                          color: context.theme.colorScheme
-                                              .onSecondaryContainer),
-                                ),
-                                Text(
-                                  "Elevate Your Digital Vision \nwith MITSET"
+                                  "Elevate Your Digital Vision with"
                                       .toUpperCase(),
                                   style:
-                                      context.textTheme.titleLarge?.copyWith(),
+                                      context.textTheme.displaySmall?.copyWith(color: context.theme.colorScheme.secondary),
                                   textAlign:
                                       ResponsiveWidget.isLargeScreen(context)
                                           ? TextAlign.start
@@ -136,11 +130,23 @@ class _MyAppState extends State<HomeView> with SingleTickerProviderStateMixin {
                                 const SizedBox(
                                   height: 16,
                                 ),
-                                Text(
-                                    "Your Trusted Partner for Transforming Ideas\ninto Exceptional Software.",
+
+                                   Text(
+                                  "MITSET",
+                                  style: context.textTheme.displayMedium
+                                      ?.copyWith(
+                                          color: context.theme.colorScheme
+                                              .primary),
+                                ),
+                                     const SizedBox(
+                                  height: 16,
+                                ),
+
+                                Text(homeController.homeDesc,
+                                   
                                     style: Theme.of(context)
                                         .textTheme
-                                        .titleMedium),
+                                        .bodyLarge),
                                 const SizedBox(
                                   height: 20.0,
                                 ),
@@ -181,6 +187,8 @@ class _MyAppState extends State<HomeView> with SingleTickerProviderStateMixin {
                     ),
                   ),
                   const Ourservices(),
+
+                  ContactSection(),
                   const Footer()
                 ],
               ),

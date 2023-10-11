@@ -17,7 +17,7 @@ class Ourservices extends GetView<HomeController> {
     int itemsPerRow = ResponsiveWidget.isSmallScreen(context)
         ? 1
         : ResponsiveWidget.isMediumScreen(context)
-            ? 2
+            ? 1
             : 3;
     final int rowCount = (controller.servicesList.length / itemsPerRow).ceil();
 
@@ -32,6 +32,7 @@ class Ourservices extends GetView<HomeController> {
                 : ResponsiveRowColumnType.ROW,
             rowMainAxisAlignment: MainAxisAlignment.center,
             rowCrossAxisAlignment: CrossAxisAlignment.start,
+            
             rowSpacing: 0,
             children: [
               ResponsiveRowColumnItem(
@@ -58,6 +59,7 @@ class Ourservices extends GetView<HomeController> {
 
                             return Row(
                               mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: rowItems
                                   .map((model) => _ServicesCard(model: model))
                                   .toList(),
@@ -119,63 +121,66 @@ class __ServicesCardState extends State<_ServicesCard> {
       fit: ResponsiveWidget.isSmallScreen(context)
           ? FlexFit.tight
           : FlexFit.tight,
-      child: MouseRegion(
-        onEnter: (_) {
-          setState(() {
-            isHovered = true;
-          });
-        },
-        onExit: (_) {
-          setState(() {
-            isHovered = false;
-          });
-        },
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 400),
-          transform: Matrix4.identity()
-            ..scale(controller.isHovered ? 1.1 : 1.0),
-          margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-          decoration: BoxDecoration(
-            boxShadow: isHovered
-                ? [
-                    BoxShadow(
-                      color: context.theme.colorScheme.shadow,
-                      blurRadius: 15,
-                      spreadRadius: 5,
-                      offset: const Offset(0, 1),
-                    )
-                  ]
-                : [],
-          ),
-          child: Card(
-            color: context.theme.colorScheme.secondaryContainer,
-            margin: EdgeInsets.zero,
-            elevation: isHovered ? 1 : 0,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset(widget.model.icon!,
-                      color: Theme.of(context).textTheme.bodyLarge?.color),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Text(
-                    widget.model.title,
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        color: context.theme.colorScheme.onSecondaryContainer),
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Text(
-                    widget.model.subtitle!,
-                    style: context.textTheme.titleMedium?.copyWith(
-                        color: context.theme.colorScheme.onSecondaryContainer),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+      child: SizedBox(
+        child: MouseRegion(
+          onEnter: (_) {
+            setState(() {
+              isHovered = true;
+            });
+          },
+          onExit: (_) {
+            setState(() {
+              isHovered = false;
+            });
+          },
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 400),
+            transform: Matrix4.identity()
+              ..scale(controller.isHovered ? 1.1 : 1.0),
+            margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+            decoration: BoxDecoration(
+      
+              boxShadow: isHovered
+                  ? [
+                      BoxShadow(
+                        color: context.theme.colorScheme.shadow,
+                        blurRadius: 15,
+                        spreadRadius: 5,
+                        offset: const Offset(0, 1),
+                      )
+                    ]
+                  : [],
+            ),
+            child: Card(
+              color: context.theme.colorScheme.secondaryContainer,
+              margin: EdgeInsets.zero,
+              elevation: isHovered ? 1 : 0,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 50),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Image.asset(widget.model.icon!,
+                        color: context.theme.colorScheme.primary),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Text(
+                      widget.model.title,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          color: context.theme.colorScheme.onSecondaryContainer),
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Text(
+                      widget.model.subtitle!,
+                      style: context.textTheme.bodyMedium?.copyWith(
+                          color: context.theme.colorScheme.onSecondaryContainer),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
