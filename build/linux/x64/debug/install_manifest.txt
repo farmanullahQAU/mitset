@@ -4,9 +4,9 @@
 /home/farman/flutterProjects/mitset/build/linux/x64/debug/bundle/data/flutter_assets/shaders/ink_sparkle.frag
 /home/farman/flutterProjects/mitset/build/linux/x64/debug/bundle/data/flutter_assets/kernel_blob.bin
 /home/farman/flutterProjects/mitset/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.json
-/home/farman/flutterProjects/mitset/build/linux/x64/debug/bundle/data/flutter_assets/NOTICES
 /home/farman/flutterProjects/mitset/build/linux/x64/debug/bundle/data/flutter_assets/version.json
 /home/farman/flutterProjects/mitset/build/linux/x64/debug/bundle/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+/home/farman/flutterProjects/mitset/build/linux/x64/debug/bundle/data/flutter_assets/assets/images/home_banner.png
 /home/farman/flutterProjects/mitset/build/linux/x64/debug/bundle/data/flutter_assets/assets/images/web_dev.png
 /home/farman/flutterProjects/mitset/build/linux/x64/debug/bundle/data/flutter_assets/assets/images/iso.png
 /home/farman/flutterProjects/mitset/build/linux/x64/debug/bundle/data/flutter_assets/assets/images/background.png

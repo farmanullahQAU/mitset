@@ -9,7 +9,9 @@ import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
   final double? pixels;
-  const Header({super.key, this.pixels});
+final Function(int)? onTap;
+  
+   Header({super.key, this.pixels,this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,11 @@ class Header extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25))),
-            onPressed: () {},
+            onPressed: () {
+
+
+Get.find<HomeController>().scrollToPage(11);
+            },
             child: const Text("Contact Us"))
       ],
       pinned: true,
@@ -66,6 +72,12 @@ class Header extends StatelessWidget {
                             isSelected: controller.selectedIndex == entry.key,
                             onTap: () {
                               controller.onNavTap(entry.key);
+
+                              if(this.onTap!=null)
+
+                           return  onTap!(entry.key);
+
+                              
                             },
                           ),
                         ),

@@ -1,4 +1,5 @@
 import 'package:code_symmetry/app/models/devservice_model.dart';
+import 'package:code_symmetry/app/modules/home/views/pricing.dart';
 import 'package:code_symmetry/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,7 +8,11 @@ class HomeController extends GetxController {
   final GlobalKey homeKey = GlobalKey();
   final GlobalKey aboutKey = GlobalKey();
   final GlobalKey servicesKey = GlobalKey();
+
   final GlobalKey contactKey = GlobalKey();
+
+
+
 
   bool isHovered = false;
   int selectedIndex = 0;
@@ -31,7 +36,7 @@ class HomeController extends GetxController {
   }
 
   late List<ServiceModel> servicesList;
-    String homeDesc= "Your Trusted and Reliable Partner in the Journey of Transforming Creative Ideas and Innovative Concepts into Exceptional and High-Quality Software Solutions. With a deep commitment to excellence, we collaborate closely with our clients to turn their visions into tangible, user-friendly, and cutting-edge software products.";
+    String homeDesc= "Your Trusted and Reliable Partner in the Journey of Transforming Creative Ideas and Innovative Concepts into Exceptional and High-Quality Software Solutions.";
 
   void initDevServices() {
     // servicesList = [
@@ -96,11 +101,37 @@ class HomeController extends GetxController {
     update(["services"]);
   }
 
-  void onNavTap(int key) {
+  void onNavTap(int key)async {
     if (key == 2) {
-      Get.toNamed(Routes.PRICING);
+      // Get.toNamed(Routes.PRICING);
+      Get.to(()=>PricingPageView());
     }
     selectedIndex = key;
     update(["navBar"]);
+
+    scrollToPage(key);
+
+  }
+
+  scrollToPage(int index)async{
+
+
+    if(index==0){
+
+        await Scrollable.ensureVisible(homeKey!.currentContext!,duration: Duration(milliseconds: 1500));
+    }
+     else if(index==1){
+
+        await Scrollable.ensureVisible(servicesKey!.currentContext!,duration: Duration(milliseconds: 1500));
+    } 
+
+    else if(index==11){
+        await Scrollable.ensureVisible(contactKey!.currentContext!,duration: Duration(milliseconds: 1500));
+
+
+    }
+    else if(index==3)
+        await Scrollable.ensureVisible(aboutKey!.currentContext!,duration: Duration(milliseconds: 1500));
+    
   }
 }

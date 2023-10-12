@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:code_symmetry/app/modules/home/controllers/home_controller.dart';
 import 'package:code_symmetry/app/modules/home/src/Footer.dart';
 import 'package:code_symmetry/app/modules/home/src/responsive_widget.dart';
+import 'package:code_symmetry/app/modules/home/views/about_us.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -65,128 +68,145 @@ class _MyAppState extends State<HomeView> with SingleTickerProviderStateMixin {
         body: CustomScrollView(
           controller: _controller,
           slivers: [
-            Header(pixels: pixels),
+            Header(pixels: pixels,onTap: (int index){
+
+
+            },),
             SliverToBoxAdapter(
+              key: homeController.homeKey,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Container(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: context.width * 0.1),
+                  Card(
+                    margin: EdgeInsets.zero,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: context.width*0.1,vertical: 50),
+                      
+                      child: Column(
+                        children: [
+                          ResponsiveRowColumn(
+                            rowCrossAxisAlignment: CrossAxisAlignment.center,
+                            rowMainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            columnMainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            columnCrossAxisAlignment: CrossAxisAlignment.center,
+                            layout: ResponsiveWidget.isLargeScreen(context)
+                                ? ResponsiveRowColumnType.ROW
+                                : ResponsiveRowColumnType.COLUMN,
+                            children: [
+                              ResponsiveRowColumnItem(
+                                rowFlex: 1,
+                                rowFit: FlexFit.tight,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment:
+                                      ResponsiveWidget.isSmallScreen(context)
+                                          ? CrossAxisAlignment.center
+                                          : CrossAxisAlignment.start,
+                                  children: [
+                               
+                    
+                                    Text(
+                                      "Elevate Your Digital Vision with"
+                                         ,
+                                      style: GoogleFonts.oswald(
 
-                    width: double.infinity,
-                    // height:
-                    //     ResponsiveValue<double>(context, conditionalValues: [
-                    //   responsive.Condition.largerThan(
-                    //       name: TABLET, value: context.width * 0.3),
-                    //   responsive.Condition.smallerThan(
-                    //       name: TABLET, value: context.width + 300),
-                    // ]).value,
-                    child: ResponsiveRowColumn(
-                      rowCrossAxisAlignment: CrossAxisAlignment.center,
-                      rowMainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      columnMainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      columnCrossAxisAlignment: CrossAxisAlignment.center,
-                      layout: ResponsiveWidget.isSmallScreen(context)
-                          ? ResponsiveRowColumnType.COLUMN
-                          : ResponsiveRowColumnType.ROW,
-                      children: [
-                        ResponsiveRowColumnItem(
-                          rowFlex: 1,
-                          rowFit: FlexFit.tight,
-                          child: Container(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment:
-                                  ResponsiveWidget.isSmallScreen(context)
-                                      ? CrossAxisAlignment.center
-                                      : CrossAxisAlignment.start,
-                              children: [
-                                // Transform(
-                                //   transform: Matrix4.rotationZ(pi / 8)
-                                //     ..translate(-180.0, 120.0),
-                                //   child: Container(
-                                //     height: 300.0,
-                                //     width: context.width * 0.4,
-                                //     decoration: BoxDecoration(
-                                //       color: Theme.of(context).p,
-                                //       borderRadius:
-                                //           BorderRadius.circular(300.0),
-                                //     ),
-                                //   ),
-                                // ),
-
-                                Text(
-                                  "Elevate Your Digital Vision with"
-                                      .toUpperCase(),
-                                  style: context.textTheme.displaySmall
-                                      ?.copyWith(
-                                          color: context
-                                              .theme.colorScheme.secondary),
-                                  textAlign:
-                                      ResponsiveWidget.isLargeScreen(context)
-                                          ? TextAlign.start
-                                          : TextAlign.center,
-                                ),
-                                const SizedBox(
-                                  height: 16,
-                                ),
-
-                                Text(
-                                  "MITSET",
-                                  style: context.textTheme.displayMedium
-                                      ?.copyWith(
-                                          color: context
-                                              .theme.colorScheme.primary),
-                                ),
-                                const SizedBox(
-                                  height: 16,
-                                ),
-
-                                Text(homeController.homeDesc,
-                                    style:
-                                        Theme.of(context).textTheme.bodyLarge),
-                                const SizedBox(
-                                  height: 20.0,
-                                ),
-                                MaterialButton(
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(50),
-                                        side: const BorderSide(width: 0.5)),
-                                    onPressed: () {},
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 32, vertical: 12),
-                                      child: Text(
-                                        "Get Started",
-                                        style: GoogleFonts.lato(
-                                          textStyle: const TextStyle(
-                                              color: Colors.blue,
-                                              letterSpacing: .5),
-                                        ),
+                                       textStyle: context.textTheme.displayMedium
+                                          ?.copyWith(
+                                              color: context
+                                                  .theme.colorScheme.secondary), 
                                       ),
-                                    ))
-                              ],
-                            ),
+                                      textAlign:
+                                          ResponsiveWidget.isLargeScreen(context)
+                                              ? TextAlign.start
+                                              : TextAlign.center,
+                                    ),
+                                    const SizedBox(
+                                      height: 16,
+                                    ),
+                    
+                                    Text(
+                                      "MITSET",
+                                      style: GoogleFonts.oswald(
+
+
+                                        textStyle: context.textTheme.displayMedium
+                                          ?.copyWith(
+                                              color: context
+                                                  .theme.colorScheme.primary)
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 16,
+                                    ),
+                    
+                          
+                                    const SizedBox(
+                                      height: 20.0,
+                                    ),
+                                    OutlinedButton(
+                                       
+                                        onPressed: () {
+homeController.scrollToPage(11);
+
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 32, vertical: 12),
+                                          child: Text(
+                                            "Get Started",
+                                            style: GoogleFonts.lato(
+                                       
+                                            ),
+                                          ),
+                                        ))
+                                  ],
+                                ),
+                              ),
+                              ResponsiveRowColumnItem(
+                                rowFlex: 1,
+                                rowFit: FlexFit.tight,
+                                child: Container(
+                                  child: FadeTransition(
+                                    opacity: _opacityAnimation,
+                                    child: SlideTransition(
+                                        position: _slideAnimation,
+                                        child: Image.asset("assets/images/home_banner.png",height: 400,)),
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
-                        ),
-                        ResponsiveRowColumnItem(
-                          rowFlex: 1,
-                          rowFit: FlexFit.tight,
-                          child: Container(
-                            child: FadeTransition(
-                              opacity: _opacityAnimation,
-                              child: SlideTransition(
-                                  position: _slideAnimation,
-                                  child: Image.asset("assets/images/iso.png")),
-                            ),
-                          ),
-                        )
-                      ],
+
+                           Padding(
+                             padding:  EdgeInsets.symmetric(horizontal: 
+                             
+                             ResponsiveWidget.isLargeScreen(context)?
+                             
+                             context.width*0.2:16,vertical: 50),
+                             child: Text(
+                                  homeController.homeDesc
+                                        ,
+                                       style: GoogleFonts.lato(
+
+
+                                         textStyle: context.textTheme.titleLarge
+                                            ?.copyWith(
+
+                                                color: context
+                                                    .theme.colorScheme.secondary),
+                                       ),
+                                        textAlign:TextAlign.center,
+                                      ),
+                           ),
+                        ],
+                      ),
                     ),
                   ),
-                  const Ourservices(),
-                  const ContactSection(),
+                   Ourservices(key:homeController.servicesKey,),
+                   ContactSection(key: homeController.contactKey,),
+AboutUsPage(key:homeController.aboutKey,),
+                  
                   const Footer()
                 ],
               ),

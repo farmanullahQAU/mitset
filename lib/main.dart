@@ -2,15 +2,18 @@ import 'package:code_symmetry/app/color_schemes.g.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 import 'app/routes/app_pages.dart';
 
 void main() {
+  setPathUrlStrategy();
   runApp(
     GetMaterialApp(
       theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
-      darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
+      darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme,),
       themeMode: ThemeMode.dark,
       builder: (context, child) => ResponsiveBreakpoints.builder(
         child: child!,

@@ -9,8 +9,10 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 import '../src/responsive_widget.dart';
 
-class PricingPageView extends GetView<PricingViewController> {
-  const PricingPageView({
+class PricingPageView extends StatelessWidget {
+
+  final controller=Get.put(PricingViewController());
+   PricingPageView({
     super.key,
   });
 
@@ -92,13 +94,13 @@ class PricingPageView extends GetView<PricingViewController> {
                           ),
                         ),
                       ),
-                      ResponsiveRowColumnItem(
-                        rowFlex: 1,
-                        rowFit: FlexFit.tight,
-                        child: Container(
-                          child: Image.asset("assets/images/iso.png"),
-                        ),
-                      )
+                       ResponsiveRowColumnItem(
+                                rowFlex: 1,
+                                rowFit: FlexFit.tight,
+                                child: Container(
+                                  child: Image.asset("assets/images/home_banner.png",height: 400,),
+                                ),
+                              )
                     ],
                   ),
                  

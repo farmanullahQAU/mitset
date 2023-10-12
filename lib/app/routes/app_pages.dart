@@ -25,7 +25,7 @@ class AppPages {
         binding: AppBindings()),
     GetPage(
         name: _Paths.PRICING,
-        page: () => const PricingPageView(),
+        page: () =>  PricingPageView(),
         binding: AppBindings()),
   ];
 }
