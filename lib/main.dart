@@ -21,7 +21,7 @@ void main() {
           const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
         ],
       ),
-      title: "code symmetry",
+      title: "MITSET",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     ),

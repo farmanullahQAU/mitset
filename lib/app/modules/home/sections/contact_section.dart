@@ -272,8 +272,6 @@
 //   }
 // }
 
-
-
 // Create a Form widget.
 import 'package:code_symmetry/app/modules/home/src/responsive_widget.dart';
 import 'package:flutter/material.dart';
@@ -290,9 +288,7 @@ class ContactSection extends StatefulWidget {
   }
 }
 
-
 class ContactSectionState extends State<ContactSection> {
- 
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -300,102 +296,169 @@ class ContactSectionState extends State<ContactSection> {
     return Form(
       key: _formKey,
       child: Card(
-        child: ResponsiveRowColumn(
-
-          
-          layout: ResponsiveWidget.isLargeScreen(context)?ResponsiveRowColumnType.ROW:ResponsiveRowColumnType.COLUMN,
-
-          children: [
-
-
-            ResponsiveRowColumnItem(
-              rowFlex: 1,
-              child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TextFormField(
-                
-                  decoration: InputDecoration(border: OutlineInputBorder()),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter some text';
-                    }
-                    return null;
-                  },
+        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+        margin: EdgeInsets.zero,
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: context.width * 0.2, vertical: 100),
+          child: ResponsiveRowColumn(
+            layout: ResponsiveWidget.isLargeScreen(context)
+                ? ResponsiveRowColumnType.ROW
+                : ResponsiveRowColumnType.COLUMN,
+            rowCrossAxisAlignment: CrossAxisAlignment.start,
+            rowMainAxisAlignment: MainAxisAlignment.spaceBetween,
+            rowSpacing: 40,
+            children: [
+              ResponsiveRowColumnItem(
+                rowFlex: 1,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        prefixIcon: Icon(Icons.person),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(), filled: false),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          prefixIcon: Icon(Icons.email),
+                          border: OutlineInputBorder(),
+                          filled: false),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          prefixIcon: Icon(Icons.phone),
+                          border: OutlineInputBorder(),
+                          filled: false),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(), filled: false),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                      maxLines: 5,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('Processing Data')),
+                            );
+                          }
+                        },
+                        child: const Text('Submit'),
+                      ),
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  child: ElevatedButton(
-                    onPressed: () {
-                       
-                      if (_formKey.currentState!.validate()) {
-                
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Processing Data')),
-                        );
-                      }
-                    },
-                    child: const Text('Submit'),
-                  ),
-                ),
-              ],
-                      ),
-            ),
-
-                ResponsiveRowColumnItem(
-                  rowFlex: 1,
-                  child:             Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4.0),
-                    child: Text(
-                      'Free Tools',
-                      style: GoogleFonts.nunito(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 14.0,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4.0),
-                    child: Text(
-                      'Community',
-                      style: GoogleFonts.nunito(
-                        color: Colors.black54,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 12.0,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4.0),
-                    child: Text(
-                      'Project Management',
-                      style: GoogleFonts.nunito(
-                        color: Colors.black54,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 12.0,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4.0),
-                    child: Text(
-                      'Statistics',
-                      style: GoogleFonts.nunito(
-                        color: Colors.black54,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 12.0,
-                      ),
-                    ),
-                  ),
-                ],
               ),
+              ResponsiveRowColumnItem(
+                rowFlex: 1,
+                rowFit: FlexFit.tight,
+                
+                child: Container(
+                  color: Colors.red,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4.0),
+                        child: Text(
+                          'Free Tools',
+                          style: GoogleFonts.nunito(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w800,
+                            fontSize: 14.0,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4.0),
+                        child: Text(
+                          'Community',
+                          style: GoogleFonts.nunito(
+                            color: Colors.black54,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12.0,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4.0),
+                        child: Text(
+                          'Project Management',
+                          style: GoogleFonts.nunito(
+                            color: Colors.black54,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12.0,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4.0),
+                        child: Text(
+                          'Statistics',
+                          style: GoogleFonts.nunito(
+                            color: Colors.black54,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );

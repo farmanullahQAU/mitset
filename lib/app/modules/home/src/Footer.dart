@@ -280,18 +280,18 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-// padding: EdgeInsets.symmetric(vertical: 32),
-margin: EdgeInsets.zero,
+    return Container(
+      color: context.theme.colorScheme.background,
 
-shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+// padding: EdgeInsets.symmetric(vertical: 32),
+      margin: EdgeInsets.zero,
+
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 32),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-           
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -303,7 +303,6 @@ shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
                 Text(
                   'Copyright © MITSET [2023-2024] All Rights Reserved. ',
                   style: GoogleFonts.nunito(
-              
                     fontWeight: FontWeight.w500,
                     fontSize: 12.0,
                   ),

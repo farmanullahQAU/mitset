@@ -116,12 +116,13 @@ class _MyAppState extends State<HomeView> with SingleTickerProviderStateMixin {
                                 //   ),
                                 // ),
 
-                             
                                 Text(
                                   "Elevate Your Digital Vision with"
                                       .toUpperCase(),
-                                  style:
-                                      context.textTheme.displaySmall?.copyWith(color: context.theme.colorScheme.secondary),
+                                  style: context.textTheme.displaySmall
+                                      ?.copyWith(
+                                          color: context
+                                              .theme.colorScheme.secondary),
                                   textAlign:
                                       ResponsiveWidget.isLargeScreen(context)
                                           ? TextAlign.start
@@ -131,22 +132,20 @@ class _MyAppState extends State<HomeView> with SingleTickerProviderStateMixin {
                                   height: 16,
                                 ),
 
-                                   Text(
+                                Text(
                                   "MITSET",
                                   style: context.textTheme.displayMedium
                                       ?.copyWith(
-                                          color: context.theme.colorScheme
-                                              .primary),
+                                          color: context
+                                              .theme.colorScheme.primary),
                                 ),
-                                     const SizedBox(
+                                const SizedBox(
                                   height: 16,
                                 ),
 
                                 Text(homeController.homeDesc,
-                                   
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyLarge),
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge),
                                 const SizedBox(
                                   height: 20.0,
                                 ),
@@ -187,8 +186,7 @@ class _MyAppState extends State<HomeView> with SingleTickerProviderStateMixin {
                     ),
                   ),
                   const Ourservices(),
-
-                  ContactSection(),
+                  const ContactSection(),
                   const Footer()
                 ],
               ),
